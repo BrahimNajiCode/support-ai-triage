@@ -1,18 +1,39 @@
-.idea/
-*.iml
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
 
+# Virtual environments
 .venv/
 venv/
 
-__pycache__/
-*.py[cod]
-
+# Environment
 .env
+.env.*
 
+!.env.example
+
+# Testing
 .pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking
 .mypy_cache/
+
+# Ruff
 .ruff_cache/
 
-dist/
+# Build
 build/
+dist/
 *.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
