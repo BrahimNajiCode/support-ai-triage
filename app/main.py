@@ -1,7 +1,16 @@
 from fastapi import FastAPI
-
+from contextlib import asynccontextmanager
+from collections.abc import AsyncIterator
 from app.api.router import router
 from app.core.config import Settings, get_settings
+from app.db.health import verify_database_connection
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI) -> AsyncIterator[None]:
+    verify_database_connection()
+    yield
+
 
 
 def create_app(settings: Settings | None = None) -> FastAPI:
